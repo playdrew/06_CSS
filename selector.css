@@ -1,0 +1,102 @@
+<style>
+/*HTML 문서 내에 스타일 정의 -> 내부 스타일 시트 방식*/ 
+/* 내부가 있다는 것은 외부가 존재한다. */
+/* 속성 값과 일치하는 객체(태그,요소) 선택 */
+div[name=name2]{
+ background: orange;
+}
+/* 선택자 [속성명 = 속성값]을 통해서 name2를 특정 */
+/* 속성 안의 값이 특정 값을 띄어쓰기 단위로 포함하는 객체 선택 */
+div[name~=name6]{
+ background: yellow;
+}
+/* ~= name을 1 5 6 으로 바꾸면 띄어쓰기까지 끊어 선택을 해준다 =로 하면 인식못한다. */
+/* 속성 값이 특정 값과 일치하거나 '-' 문자가 곧바로 해당 값 뒤에 붙는 객체 */
+div[class |= class]{
+ background: cadetblue;
+ /* |= class 혹은 class-라고 하는 녀석들을 적용하겠다라는 것입니다. 순서맞춰야합니다. div-class는 적용안됨 */
+}
+
+/* 속성 값을 가지고 있으며, 접두사로 값이 포함되어 있는 객체 선택 */
+div[name^=name]{
+ background: blue;
+ /* 뒤에 숫자가 뭐든간에 name이 적혀있으면 색상지정 여기선 우선순위없고 위에서 아래로 코드를 보기에 blue색상으로 다 바뀐다.  */
+}
+
+/* 속성 안의 값이 특정 값으로 끝나는(접미사)객체선택 */
+div[class$=class]{
+ color: white;
+ /* div-class 클래스로 마감이 되는 것들만 글자색 하얀색이고 class-div는 class로 끝나지 않아서 효과없다 */
+}
+
+/* 속성 안의 값이 특정 값을 포함하는 객체 선택 */
+div[class*=div]{
+ background-color: rebeccapurple;
+ color : aquamarine;
+ /* 어디에 있든 상관없이 div가 적혀있으면 적용된다. */
+}
+
+/* 자손 선택자 테스트 */
+/* h4번을 선택하고 싶은데 속성도 없고 하니 h4다 적용될수도 있잖아요 그래서 이렇게 상속관계를 만들어서 해결해요 */
+/* 모든 태그마다 클래스나 아이디명을 적기엔 힘드니까 자식으로서 접근하는 것이에요 */
+#test1>h4{
+ background: hotpink;
+}
+
+/* 안됨니다 div 영역을 선택을 했는데 ul 태그는 test1의 자손은 아니에요 후손이지 */
+#test1>ul>li{
+ background: cyan;
+}
+
+/* 후손선택자 테스트 */
+/* 자식을 선택할때는 직접적인 자식인 >꺽새를 하지만 ul은 후손이니까 띄어쓰기로 해요  */
+#test1 ul{
+ background: yellow;
+}
+
+#test1 li{
+ background: blue;
+}
+
+/* 형제 관계 선택자(동위(같은위치)선택자) 조금 나중에 */
+/* #div-test1 + div{
+ background: red;
+} */
+
+/* css 에서 제공하는 이벤트 관련 선택자 */
+/* 이벤트를 사용할때 콜론:을 사용한다 */
+#active-test:active{
+ background: red;
+ color :white;
+ /* 영역 클릭하면 변하는 것을 확인할 수 있다 */
+}
+
+#hover-test:hover{
+ /* pointer 손까락모양커서설정 */
+ /* 마우스 위에 올리면 된다. */
+ cursor:pointer;
+ background: darkgreen;
+ color:bisque;
+ font : 60px bold;
+}
+
+input[type=checkbox]:checked{
+ width: 100px;
+ height: 100px;
+ /* check 될때 너비와 높이가 적용된다. */
+}
+
+#userId:focus, #userPwd:focus{
+ background: hotpink ;
+ /* 누른 상태면 위의 CSS 컬러 적용됨 */
+}
+
+option:enabled{
+ background:darkred;
+}
+
+option:disabled{
+ background: red;
+}
+
+</style>

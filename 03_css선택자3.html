@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 형제 관계 선택자 */
+        #div-test1{
+            background:red;
+        }
+        /* 해당 요소 바로 다음에 특정 타입요소 선택 */
+
+        /* 바로 다음 요소 */
+        #div-test1 + div{
+            background: green;
+        }
+
+        /* 해당 요소보다 뒤에 존재하는 특정 타입요소 모두 선택 */
+        /* #div-test1 ~ div{
+            background: plum;
+        } */
+
+        #test :first-child{
+            background: rebeccapurple;
+        }
+
+        /*태그 종류 상관 없이 형제 관계라면 가능*/
+        #test :last-child{
+            background:red;
+        }
+
+        /*형제 관계 태그 중 앞에서 수열번째 태그 선택*/
+        /* #test :nth-child(3){
+            background: seagreen;
+        } */
+
+        /* 2의 배수 */
+        #test :nth-child(2n){
+            background: seagreen;
+        } 
+/* 
+        #test :nth-child(3n){
+            background: seagreen;
+        } 3의 배수*/
+
+        /* #test 한 다음에 띄어쓰기 해야된다 
+        마지막을 기준으로 세겠다는 뜻입니다. */
+        #test :nth-last-child(4){
+            background: blueviolet;
+        }
+
+        /* 위치가 아닌 형태로 접근 */
+        /* 1과 6이 불들어왔는데 타입들(p,pre)들 중에 처음인 것을 의미합니다. */
+        #test2 :first-of-type{
+            background:wheat;
+        }
+
+        /* 타입들중 마지막에 있는 것만 접근한다는 것입니다. */
+        #test2 :last-of-type{
+            background: orangered;
+        }
+
+        /* p태그간에 2배수*/
+        #test2 p:nth-of-type(2n){
+            background: teal;
+        }
+
+        /* p태그간에 뒤에서 세번째를 취급 */
+        #test2 p:nth-last-of-type(3){
+            background: darkgoldenrod;
+        }
+
+        /* 홀수를 오렌지색으로 했는데 짝수가 오렌지색이 되었다 */
+        /* 짝수:even/2n , 홀수 : odd/2n-1 */
+        #test3 p:not(:nth-child(2n-1)){
+            background: orange;
+        }
+        
+        /* 한 글자도 선택가능하다. */
+        #test4 p:first-letter{
+            font:50px bold;
+        }
+
+        /* 한줄도 선택가능하다 */
+        #test4 p:first-line{
+            background: coral;
+        }
+
+        /* 사용자가 드래그한 글자 선택 */
+        /* :: 가상의 요소 */
+        #test4 p::selection{
+            background: red;
+        }
+        </style>
+</head>
+<body>
+    <h2>동위 선택자</h2>
+    <p>동위 관계(형제관계)에서 뒤에 위치한 태그를
+        선택할 때 사용이 된다.
+    </p>
+    <pre>
+        바로 뒤의 요소를 선택할 시
+        선택자a + 선택자b {설정내용} 을 사용하며
+        뒤에 있는 모든 요소를 선택할 시에는
+        선택자a ~ 선택자b {설정내용} 을 사용한다.
+    </pre>
+    <!-- div#div-test${div-test$}*5 -->
+    <div id="div-test1">div-test1</div>
+    <div id="div-test2">div-test2</div>
+    <div id="div-test3">div-test3</div>
+    <div id="div-test4">div-test4</div>
+    <div id="div-test5">div-test5</div>
+    <script type="text/javascript">
+        window.onload = function(){
+            // div-test2 를 여기에 옮겼다
+            let second = document.querySelector('div[id=div-test2]');
+            console.log(typeof second); // 콘솔로 Object라 뜬다
+            // 요소는 객체이다.
+            console.log(second); // 콘솔로 <div id="div-test2">div-test2</div>라 뜬다.
+            //method대신에 function입니다.
+        }
+    </script>
+    <hr>
+    <h2>일반구조선택자</h2>
+    <p>특정한 위치에 있는 태그 선택하기</p>
+    <div id="test">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <h2>형태 구조 선택자(태그로 구분)</h2>
+    <p>특정 위치에 있는 태그 선택(태그별 구분)</p>
+    <div id="test2">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <hr>
+    <h2>부정선택자</h2>
+    <p>지금까지의 선택자에 대해 반대로 적용하는 선택자</p>
+    <div id="test3">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <!-- div#test4>(p*5)>(pre*1) -->
+    <!-- div#test4>(p*5)+(pre*1) -->
+     <!-- div#test5>p{test$}*5+pre*1 -->
+     <hr>
+     <h2>문자 선택자</h2>
+     <div id="test4">
+        <p>절대음감절대음감절대음감</p>
+     </div>
+</body>
+</html>
