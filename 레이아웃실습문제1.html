@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        #nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        #nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        #container {
+            display: flex;
+            margin: 20px;
+        }
+        #section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+        article {
+            width: 150px;  /* 정사각형의 가로 길이 */
+            height: 150px; /* 정사각형의 세로 길이 */
+            margin: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #aside {
+            width: 150px;  /* 정사각형의 가로 길이 */
+            height: 320px; /* 섹션의 높이에 맞게 조절 */
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Header</h1>
+    </div>
+    <div id="nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+    <div id="container">
+        <div id="section">
+            <article>
+                <h2>Article 1</h2>
+                <p>Content 1</p>
+            </article>
+            <article>
+                <h2>Article 2</h2>
+                <p>Content 2</p>
+            </article>
+        </div>
+        <div id="aside">
+            <h3>Aside</h3>
+            <p>Additional Info</p>
+        </div>
+    </div>
+    <div id="footer">
+        <p>Footer Content</p>
+    </div>
+</body>
+</html>
