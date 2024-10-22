@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: orange;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+        nav {
+            background-color: gray;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        section {
+            display: flex;
+            background-color: lightgreen;
+            padding: 10px;
+        }
+        article {
+            margin: 10px;
+            padding: 10px;
+            background-color: lightpink;
+            flex: 1;
+        }
+        .article-large {
+            background-color: pink;
+            flex: 2;
+        }
+        .article-medium {
+            background-color: orange;
+        }
+        .article-small {
+            background-color: green;
+            flex-basis: 200px;
+        }
+        aside {
+            background-color: blue;
+            width: 200px;
+            margin-left: 10px;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+        }
+        footer {
+            background-color: purple;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Header</header>
+
+    <nav>Navigation</nav>
+
+    <section>
+        <article class="article-large">Article 1</article>
+        <div>
+            <article class="article-medium">Article 2</article>
+            <article class="article-small">Article 3</article>
+        </div>
+        <aside>Aside</aside>
+    </section>
+
+    <footer>Footer</footer>
+
+</body>
+</html>

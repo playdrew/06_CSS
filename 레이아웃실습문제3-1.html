@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+            background-color: red;
+            height:100px;
+        }
+
+        .container1{
+            display:flex;
+        }
+        nav{
+            flex:0.25;
+            height:400px;
+            background-color: gray;
+        }
+        section{
+            display:flex;
+            flex-direction: column;
+            height:400px;
+            background-color: green;
+            flex:1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        article:nth-of-type(1){
+            background-color: pink;
+            height:100px;
+            width:100px;
+        }
+
+        article:nth-of-type(2){
+            background-color: orange;
+            height:100px;
+            width:100px;
+
+        }
+
+        article:nth-of-type(3){
+            background-color: darkgreen;
+            height:100px;
+            width:100px;
+        }
+        
+        aside{
+            height:400px;
+            background-color: aqua;
+            flex:0.25;
+        }
+        footer{
+            background-color: purple;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div class="container1">
+        <nav></nav>
+        <section>
+            <article></article>
+            <article></article>
+            <article></article>
+        </section>
+        <aside></aside>
+    </div>
+    <footer></footer>
+    
+</body>
+</html>
